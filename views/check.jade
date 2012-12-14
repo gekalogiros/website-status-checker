@@ -1,0 +1,35 @@
+extends layout
+block stylesheets
+	link(rel='stylesheet', href='/stylesheets/alertify.core.css')
+	link(rel='stylesheet', href='/stylesheets/alertify.default.css')
+block content
+	#container
+		#logo
+		#header
+			h1=title
+		table#mainTable
+			tbody
+				for website in websites
+					tr
+						th.website
+							a.url(href='#{website.url}')
+								h2=website.url
+						th.onlineStatus
+							if  website.status==1
+								img.status(src='/images/Face-Laugh-32.png')
+							else
+								img(src='/images/Face-Crying-32.png')
+		button.button#chartTrigger
+			h2 Statistics
+		#chart
+		#info
+block scripts
+	script(src='/javascripts/jquery-1.8.3.min.js')
+	script(src='/javascripts/jquery.bpopup-0.7.0.min.js')
+	script(src='/javascripts/jquery.color.js')
+	script(src='/javascripts/jquery-glowing.js')
+	script(src='/javascripts/alertify.min.js')
+	script(src='https://www.google.com/jsapi')
+	script(src='/javascripts/check.js')
+	
+	
